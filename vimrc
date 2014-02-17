@@ -8,8 +8,9 @@ set tabstop=2     " a tab is two spaces
 set expandtab
 set backspace=indent,eol,start
                   " allow backspacing over everything in insert mode
-set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
+set smartindent   " does thte right thing (mostly) in programs
+set autoindent    " always set autoindenting on
 set number        " always show line numbers
 set shiftwidth=2  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
@@ -40,6 +41,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_cmd = 'CtrlPMRU'
 "let g:ctrlp_by_filename=1
+let g:ctrlp_mruf_max=1024
 " Sane Ignore For ctrlp
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
@@ -52,7 +54,7 @@ set ruler
 set t_Co=256
 syntax enable
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-set pastetoggle=<F2>
+set pastetoggle=<F10>
 "attempt to make vim run faster in terminal 
 set nocursorcolumn
 set nocursorline
@@ -107,3 +109,4 @@ imap jj <esc>
 "nnoremap tn :tabnew<CR>
 let g:mustache_abbreviations = 1
 au BufRead,BufNewFile *.hbs set filetype=mustache
+autocmd QuickFixCmdPost *grep* cwindow

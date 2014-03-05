@@ -28,6 +28,8 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
+set so=7 " set 7 lines to the cursor when moving vertically
+set wildmenu
 filetype plugin indent on
 
 " Easy window navigation
@@ -35,6 +37,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <C-PageDown> gt
 nmap <silent> ,/ :nohlsearch<CR>
 au BufRead,BufNewFile *.md set filetype=markdown
 "nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
@@ -89,7 +92,6 @@ let g:tern_map_keys=1
 let g:tern_show_argument_hints="on_hold"
 "replace h1 with h1 html tag
 :iabbr h1 <h1></h1>
-:iabbr p <p></p>
 ":abbr h1 <h1></h1>
 "tab shortcuts
 "nnoremap th  :tabfirst<CR>
@@ -110,3 +112,4 @@ imap jj <esc>
 let g:mustache_abbreviations = 1
 au BufRead,BufNewFile *.hbs set filetype=mustache
 autocmd QuickFixCmdPost *grep* cwindow
+"autocmd BufWrite *.coffee execute ':s/^[  ]+/	/g'

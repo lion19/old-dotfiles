@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/tarik/development/tld/creative-backend/src/com/yieldmo/adportal/controller'
 let g:netrw_dirhist_2='/Users/tarik/.jira'
 let g:netrw_dirhist_3='/Users/tarik'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/Users/tarik'
 let g:netrw_dirhist_6='/Users/tarik/.jira'
 let g:netrw_dirhist_7='/Users/tarik/development/tld/common/src/com/yieldmo/common/mail'
 let g:netrw_dirhist_8='/Users/tarik/development/tld/creative-frontend/admin.dist/static/scripts/vendors/backbone-relational'
+let g:netrw_dirhist_9='/Users/tarik/development/tld/creative-frontend/src/less/yieldmo'

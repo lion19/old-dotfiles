@@ -30,6 +30,7 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set so=7 " set 7 lines to the cursor when moving vertically
 set wildmenu
+set mouse=a
 filetype plugin indent on
 
 " Easy window navigation
@@ -113,3 +114,8 @@ let g:mustache_abbreviations = 1
 au BufRead,BufNewFile *.hbs set filetype=mustache
 autocmd QuickFixCmdPost *grep* cwindow
 "autocmd BufWrite *.coffee execute ':s/^[  ]+/	/g'
+"from amix.dk
+"for regex turn magic on
+"magic
+set viminfo+=! " Store upper-case registers in viminfo
+

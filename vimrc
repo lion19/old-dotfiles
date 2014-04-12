@@ -30,7 +30,6 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set so=7 " set 7 lines to the cursor when moving vertically
 set wildmenu
-set mouse=a
 filetype plugin indent on
 
 " Easy window navigation

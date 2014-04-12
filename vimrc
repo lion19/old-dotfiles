@@ -1,8 +1,24 @@
 call pathogen#infect()
 Helptags
+"START VUNDLE
 " set the runtime path to include Vundle and initialize
  set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
+" To ignore plugin indent changes, instead use:
+" "filetype plugin on
+" "
+" " Brief help
+" " :PluginList          - list configured plugins
+" " :PluginInstall(!)    - install (update) plugins
+" " :PluginSearch(!) foo - search (or refresh cache first) for foo
+" " :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+" "
+" " see :h vundle for more details or wiki for FAQ
+" " NOTE: comments after Plugin commands are not allowed.
+" " Put your stuff after this line
+"END VUNDLE
+
+
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 "au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 set hidden

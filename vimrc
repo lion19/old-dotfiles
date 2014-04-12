@@ -4,6 +4,8 @@ Helptags
 " set the runtime path to include Vundle and initialize
  set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
+
+ Plugin 'christoomey/vim-tmux-navigator'
 " To ignore plugin indent changes, instead use:
 " "filetype plugin on
 " "

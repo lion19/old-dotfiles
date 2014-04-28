@@ -105,10 +105,10 @@ nmap <F8> :TagbarToggle<CR>
 vnoremap <D-c> "*y
 vnoremap <D-v> "*p
 
-"colorscheme molokai
+"colorscheme jelleybeans
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme molokai
 let g:tern_map_keys=1
 let g:tern_show_argument_hints="on_hold"
 "replace h1 with h1 html tag

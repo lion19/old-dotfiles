@@ -77,6 +77,7 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set ruler
 set t_Co=256
 syntax enable
+set background=dark
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 set pastetoggle=<F10>
 "attempt to make vim run faster in terminal 
@@ -105,9 +106,12 @@ nmap <F8> :TagbarToggle<CR>
 vnoremap <D-c> "*y
 vnoremap <D-v> "*p
 
-"colorscheme jelleybeans
-set background=dark
-let g:solarized_termcolors=256
+"set background=dark
+" option name default optional ------------------------------------------------ g:solarized_termcolors= 16 | 256 g:solarized_termtrans = 0 | 1 g:solarized_degrade = 0 | 1 g:solarized_bold = 1 | 0 g:solarized_underline = 1 | 0 g:solarized_italic = 1 | 0 g:solarized_contrast = "normal"| "high" or "low" g:solarized_visibility= "normal"| "high" or "low" ------------------------------------------------
+"let g:solarized_termcolors=256
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
+
 colorscheme molokai
 let g:tern_map_keys=1
 let g:tern_show_argument_hints="on_hold"
@@ -138,4 +142,3 @@ autocmd QuickFixCmdPost *grep* cwindow
 "for regex turn magic on
 "magic
 set viminfo+=! " Store upper-case registers in viminfo
-

@@ -142,3 +142,4 @@ autocmd QuickFixCmdPost *grep* cwindow
 "for regex turn magic on
 "magic
 set viminfo+=! " Store upper-case registers in viminfo
+set laststatus=2

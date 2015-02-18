@@ -1,11 +1,8 @@
 " Author:  Eric Van Dewoestine
 "
-" Description: {{{
-"   see http://eclim.org/vim/html/index.html
+" License: {{{
 "
-" License:
-"
-" Copyright (C) 2005 - 2013  Eric Van Dewoestine
+" Copyright (C) 2005 - 2014  Eric Van Dewoestine
 "
 " This program is free software: you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -22,26 +19,11 @@
 "
 " }}}
 
-" Global Variables {{{
-
-if !exists("g:EclimHtmlValidate")
-  let g:EclimHtmlValidate = 1
-endif
-
-if !exists("g:EclimHtmlSyntasticEnabled")
-  let g:EclimHtmlSyntasticEnabled = 0
-endif
-
-" }}}
-
 " Options {{{
 
 exec 'setlocal ' . g:EclimCompletionMethod . '=eclim#html#complete#CodeComplete'
 
-" disable syntastic
-if exists('g:loaded_syntastic_plugin') && !g:EclimHtmlSyntasticEnabled
-  let g:syntastic_html_checkers = []
-endif
+call eclim#lang#DisableSyntasticIfValidationIsEnabled('html')
 
 " }}}
 

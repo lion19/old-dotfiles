@@ -1,11 +1,8 @@
 " Author:  Eric Van Dewoestine
 "
-" Description: {{{
-"   see http://eclim.org/vim/scala/index.html
+" License: {{{
 "
-" License:
-"
-" Copyright (C) 2011 - 2013  Eric Van Dewoestine
+" Copyright (C) 2011 - 2014  Eric Van Dewoestine
 "
 " This program is free software: you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -20,14 +17,6 @@
 " You should have received a copy of the GNU General Public License
 " along with this program.  If not, see <http://www.gnu.org/licenses/>.
 "
-" }}}
-
-" Global Variables {{{
-
-if !exists("g:EclimScalaValidate")
-  let g:EclimScalaValidate = 1
-endif
-
 " }}}
 
 " Options {{{
@@ -51,7 +40,12 @@ command! -nargs=0 -buffer Validate :call eclim#lang#UpdateSrcFile('scala', 1)
 
 if !exists(":ScalaSearch")
   command -buffer -nargs=0
+    \ -complete=customlist,eclim#scala#search#CommandCompleteSearch
     \ ScalaSearch :call eclim#scala#search#Search('<args>')
+endif
+
+if !exists(":ScalaImport")
+  command -buffer -nargs=0 ScalaImport :call eclim#scala#import#Import()
 endif
 
 " }}}

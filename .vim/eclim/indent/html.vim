@@ -5,7 +5,7 @@
 "
 " License:
 "
-" Copyright (C) 2005 - 2012  Eric Van Dewoestine
+" Copyright (C) 2005 - 2014  Eric Van Dewoestine
 "
 " This program is free software: you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -33,6 +33,10 @@ runtime! indent/css.vim
 
 setlocal indentexpr=EclimGetHtmlIndent(v:lnum)
 setlocal indentkeys+=>,},0),0},),;,0{,!^F,o,O
+
+if !exists('g:EclimHtmlUnclosedTags')
+  let g:EclimHtmlUnclosedTags = ['br', 'img', 'input']
+endif
 
 " EclimGetHtmlIndent(lnum) {{{
 function! EclimGetHtmlIndent(lnum)
@@ -90,21 +94,21 @@ function! EclimGetHtmlIndent(lnum)
     " line, which IndentAnything doesn't handle properly.
     if prevline =~ '^\s\+<!--.\{-}-->'
       let adj = indent(prevlnum)
+    endif
 
-    " handle <br> tags without '/>'
-    if prevline =~ '<br\s*>'
-      let line = prevline
+    " handle non-parent tags without '/>'
+    " NOTE: the '?' in this regex is to combat issues with php
+    let noindent = exists('b:EclimHtmlUnclosedTags') ?
+      \ b:EclimHtmlUnclosedTags : g:EclimHtmlUnclosedTags
+    let noindent_pattern = '<\(' . join(noindent, '\|') . '\)[^/?]\{-}>'
+    if prevline =~? noindent_pattern
+      let line = tolower(prevline)
       let occurrences = 0
-      while line =~ '<br\s*>'
+      while line =~ noindent_pattern
         let occurrences += 1
-        let line = substitute(line, '<br\s*>', '', '')
+        let line = substitute(line, noindent_pattern, '', '')
       endwhile
       let adj = 0 - (&sw * occurrences)
-
-    " handle <input> tags without '/>' NOTE: the '?' in this regex is to
-    " compat issues with php
-    elseif prevline =~ '<input[^/?]\{-}>' " FIXME: handle wrapped input tag
-      let adj = 0 - &sw
     endif
   endif
   return IndentAnything() + adj

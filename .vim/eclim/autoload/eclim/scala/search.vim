@@ -1,11 +1,8 @@
 " Author:  Eric Van Dewoestine
 "
-" Description: {{{
-"   see http://eclim.org/vim/scala/search.html
+" License: {{{
 "
-" License:
-"
-" Copyright (C) 2012  Eric Van Dewoestine
+" Copyright (C) 2012 - 2014  Eric Van Dewoestine
 "
 " This program is free software: you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -22,20 +19,18 @@
 "
 " }}}
 
-" Global Varables {{{
-  if !exists("g:EclimScalaSearchSingleResult")
-    " possible values ('split', 'edit', 'lopen')
-    let g:EclimScalaSearchSingleResult = g:EclimDefaultFileOpenAction
-  endif
-" }}}
-
 " Script Varables {{{
   let s:search = '-command scala_search'
+  let s:options_map = {'-a': ['split', 'vsplit', 'edit', 'tabnew', 'lopen']}
 " }}}
 
 function! eclim#scala#search#Search(argline) " {{{
-  return eclim#lang#Search(
-    \ s:search, g:EclimScalaSearchSingleResult, a:argline)
+  return eclim#lang#Search(s:search, g:EclimScalaSearchSingleResult, a:argline)
+endfunction " }}}
+
+function! eclim#scala#search#CommandCompleteSearch(argLead, cmdLine, cursorPos) " {{{
+  return eclim#util#CommandCompleteOptions(
+    \ a:argLead, a:cmdLine, a:cursorPos, s:options_map)
 endfunction " }}}
 
 " vim:ft=vim:fdm=marker

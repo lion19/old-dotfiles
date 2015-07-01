@@ -1,5 +1,10 @@
-Quickly install with:
+recommended steps
+==================
+* create a local config repo (e.g. ~/cfg)
+* clone dotfiles to ~/cfg
+* symlink ~/.vim to ~/cfg/.vim
+* install vundle (up-to-date instructions at https://github.com/gmarik/Vundle.vim
 
-    git clone git://github.com/msanders/snipmate.vim.git
-	cd snipmate.vim
-	cp -R * ~/.vim
+    $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+* open vim, do :BundleInstall
